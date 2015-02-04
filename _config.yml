@@ -1,2 +1,15 @@
-encoding:	utf-8
-baseurl:	/
+encoding: utf-8
+timezone: Asia/Shanghai
+baseurl: /
+
+markdown: redcarpet
+redcarpet:
+  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
+highlighter: pygments
+permalink: none
+
+sitename: 是否
+categories:
+- tools
+
+tools: 工具

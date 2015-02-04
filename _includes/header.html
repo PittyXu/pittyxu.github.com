@@ -1,0 +1,60 @@
+<header class="top-bar" id="header">
+	<div class="fixed">
+		<nav class="top-bar">
+			<ul>
+			<!--网站目录-->
+				<li class="name has-dropdown">
+				<h1><a href="/">{{ site.sitename }} </a></h1>
+					<ul class="dropdown">
+						{% for category in site.categories %}
+						<li><a href="/{{category}}/index.html">{{site.[category]}}</a></li>
+						{% endfor %}
+					</ul>
+				</li>
+			</ul>
+
+			<section>
+				<!--文章所属目录-->
+				{% if page.category != nil %}
+				<ul class="left">
+					<li class="divider"></li>
+					<li class="has-dropdown">
+						<a class="active" href="/{{page.category}}/index.html"> {{ site.[page.category] }} </a>
+						<ul class="dropdown">
+							{% for article in site.pages %}
+							{% if article.category == page.category %}
+							<!--当前文章所属目录-->
+							{% if article.url == page.url %}
+							<!--链接在当前文章-->
+							<li class="active"><a href="#">{{ article.title }}</a></li>
+							{% else %}
+							<li><a href="{{article.url}}">{{ article.title }}</a></li>
+							{% endif %}
+							{% endif %}
+							{% endfor %}
+						</ul>
+					</li>
+					<li class="divider"></li>
+					<li class="has-dropdown nav-3"><a href="#"> {{ page.title }}</a>
+						<ul class="dropdown">
+						</ul>
+					</li>
+				</ul>
+				{% endif %}
+
+				<ul class="right">
+					<li class="divider"></li>
+					<li>
+						<a href="https://github.com/PittyXu" target="_blank">GitHub <i class="foundicon-edit"></i></a>
+					</li>
+					<li class="divider"></li>
+					<li>
+						<a href="#">TOP <i class="foundicon-up-arrow"></i></a>
+					</li>
+				</ul>
+
+			</section>
+
+		</nav>  
+	</div>
+</header>
